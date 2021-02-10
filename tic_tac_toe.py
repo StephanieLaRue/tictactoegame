@@ -57,7 +57,6 @@ def play_game(board, player):
         except ValueError:
             continue
 
-        plays = 9
         if plays > 3:
             token = check_score(board)
         if token == "X" or token == "O":
@@ -87,11 +86,11 @@ def check_score(board):
 
 def score_card(token):
     if token == "X":
-        print("\nX is the winner!")
+        print("\nX is the winner!\n")
     elif token == "O":
-        print("\nO is the winner!")
+        print("\nO is the winner!\n")
     else:
-        print("\nThere was a tie!")
+        print("\nThere was a tie!\n")
 
 def switch_token(player_token):
     if player_token == "X":
@@ -100,9 +99,6 @@ def switch_token(player_token):
         return "X"
 
 def main():
-    # include prompts in menu for playing again
-    # allow choice of player names
-    # randomize x or o
     while True:
         board = create_board()
         choice = display_menu()
@@ -111,12 +107,14 @@ def main():
             break
         elif choice == "2":
             display_board(board)
-            print("In Progress....")
-            break
+            print("\nIn Progress....\n")
         elif choice == "1":
             display_board(board)
             player = choose_token()
             play_game(board, player)
+        else:
+            print("\nInvalid selection.\n")
+            
     print("\nThanks for playing! Goodbye.")
 
 
